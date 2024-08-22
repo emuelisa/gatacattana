@@ -1,0 +1,230 @@
+/* FUENTES
+
+   Declaro el @fontface para la tipografía de los títulos. La
+   tipografía del cuerpo de texto y otros elementos es
+   Inter Variable de Google Fonts */
+
+@font-face {
+  font-family: "LPHorizont";
+  src: url("../tipos/LPHorizontCaps.woff2") format("woff2"),
+    url("../tipos/LPHorizontCaps.woff") format("woff"),
+    url("../tipos/LPHorizontCaps.ttf") format("ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* DECLARACIÓN DE VARIABLES */
+
+:root {
+  /* colores */
+  --color-light: #ecece2;
+  --color-dark: black;
+
+  /* tipografías */
+  --title-font: "LPHorizont", Arial, Helvetica, sans-serif;
+  --main-font: "Inter", Arial, Helvetica, sans-serif;
+
+  /* texto */
+
+  --text-base: 16px;
+  --text-lg: 22px;
+  --text-xl: 30px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--main-font); /* Fuente que más se usa */
+}
+
+/* 'CLASES ATÓMICAS' */
+
+/* fondos */
+
+.bg--dark {
+  background-color: var(--color-dark);
+}
+
+.bg--light {
+  background-color: var(--color-light);
+}
+
+.bg--gradient {
+  background: linear-gradient(black, transparent);
+}
+
+.bg--gradient-light {
+  background: linear-gradient(var(--color-light), transparent);
+}
+
+/* texto */
+
+.text--center {
+  text-align: center;
+}
+
+.text--dark {
+  color: var(--color-dark);
+}
+
+.text--light {
+  color: var(--color-light);
+}
+
+.pos--fixed {
+  position: fixed;
+}
+
+/* ELEMENTOS */
+
+h1,
+h3 {
+  font-family: var(--title-font);
+  text-transform: uppercase;
+  letter-spacing: -0.1em; /* Junto ligeramente las letras del título */
+}
+
+.title {
+  /* h1 principal */
+  font-size: clamp(2rem, 10vw, 5rem);
+}
+
+.title-2 {
+  /* h1 páginas secundarias */
+  font-size: var(--text-xl); 
+}
+
+.subtitle {
+  /* h2 principal */
+  font-weight: 100;
+  font-size: clamp(1rem, 5vw, 2rem);
+  text-align: center;
+}
+
+p,
+li,
+a {
+  font-weight: 250;
+}
+
+p {
+  font-size: var(--text-base);
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+@media (min-width: 1024px) {
+  .title {
+    /* h1 principal */
+    text-shadow: none; /* Por defecto, no hay sombra */
+    transition: 1s;
+
+    &:hover {
+      /* los hover irán sólo en ordenador */
+      text-shadow: 4px 4px 16px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .title-2 {
+    transition: 1s;
+
+    &:hover {
+      /* los hover irán sólo en ordenador */
+      text-shadow: 4px 4px 16px rgb(255, 0, 0),
+        -4px -4px 16px rgb(255, 145, 0, 0.7),
+        -6px 2px 16px rgba(255, 238, 0, 0.7);
+      font-size: 32px;
+    }
+  }
+}
+
+/* BOTONES */
+
+.btn {
+  position: relative;
+  display: inline-block;
+  width: 80%;
+  padding: 0.9em 2em;
+  margin: 0.5em 0;
+  border: 1px solid;
+  border-radius: 400px;
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    position: relative;
+    overflow: hidden;
+
+    span {
+      position: relative;
+      z-index: 1;
+      transition: all 0.5s;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, transparent, currentColor);
+      opacity: 0.6;
+      transform: translateX(-100%);
+      transition: all 1.5s;
+    }
+
+    &:hover span:last-child {
+      transform: translateX(100%);
+    }
+
+    &:hover:before {
+      transform: translateX(100%);
+    }
+  }
+}
+
+/* MEDIA SETTINGS */
+
+.object-cover {
+  object-fit: cover;
+  object-position: center;
+}
+
+.vid-wrap {
+  margin: 30px 0;
+
+  video {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+  }
+}
+
+/* OTROS */
+
+.hide-mobile {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: block;
+  }
+}
+
+

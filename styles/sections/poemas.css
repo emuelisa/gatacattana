@@ -1,0 +1,141 @@
+.bdy-poema {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 9rem;
+}
+
+.poemas-item {
+  display: flex;
+  flex-direction: column;
+  
+  padding: 50px 0;
+
+  border-bottom: 0.3px solid black;
+
+  &:last-of-type {
+    border: none;
+  }
+
+  > div:not(.poemas-title) {
+    width: 100%;
+  }
+
+  > div:not(.poemas-title) a {
+    width: 90%;
+    margin-top: 50px;
+  }
+
+  .poemas-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 22; /* Máximo de líneas que ocupara el poema */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .poemas-title {
+    align-self: flex-start;
+    width: 50%;
+
+    svg {
+      opacity: 0.3;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+
+  .poemas-item {
+    flex-direction: row;
+    justify-content: space-between;
+
+    > div:not(.poemas-title) {
+      width: 40%;
+    }
+  }
+
+}
+
+/* BANNER CERTAMEN DE POESÍA */
+
+#certamen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .info-certamen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    position: relative;
+    z-index: 10;
+
+    gap: 1.3em;
+    padding: 1.8em;
+
+    /* Fondo que desenfoca la imagen de detrás */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    .condiciones-certamen {
+      padding-top: 4em;
+      padding-bottom: 2em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+    }
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+
+@media (min-width: 1024px) {
+  #certamen {
+    width: 100%;
+    height: 80vh;
+  
+    .info-certamen {
+      
+      width: 50%;
+  
+  
+      /* Fondo que desenfoca la imagen de detrás */
+      
+      box-shadow: 0 4px 30px transparent;
+      
+      &:hover {
+        box-shadow: 0 4px 30px white;
+        transition: box-shadow 1.8s ease-in-out;
+      }
+  
+      .condiciones-certamen {
+        padding: 0;
+        flex-direction: row;
+        gap: 3em;
+      }
+  
+    }
+  }
+}
+
+
+

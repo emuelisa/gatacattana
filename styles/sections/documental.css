@@ -1,0 +1,57 @@
+.bdy-eterna-doc {
+  width: 90%;
+  max-width: 1700px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 5rem 0;
+}
+
+/* SECCIÓN 1 - Información */
+
+#eterna-documental {
+  display: flex;
+  flex-direction: column;
+
+  .doc-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    p {
+      font-style: italic;
+      font-size: 2rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  article {
+    width: 100%;
+
+    h3 {
+      padding-bottom: 2em;
+    }
+
+    p {
+      text-indent: 1em;
+      text-wrap: pretty;
+      padding-bottom: 2em;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+
+  #eterna-documental {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .doc-options {
+      position: sticky; /* ---- NO ME FUNCIONA EL STICKY :( ---- */
+      top: 0;
+    }
+
+    article {
+      width: 50%;
+    }
+  }
+}

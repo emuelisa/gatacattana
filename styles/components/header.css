@@ -1,0 +1,112 @@
+/* MENÚ DE NAVEGACIÓN */
+
+.main-site-navigation {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+  padding-bottom: 2rem;
+
+  z-index: 1;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+  }
+
+  li {
+    font-size: var(--text-lg); 
+    font-variation-settings: "slnt" 0, "wght" 100;
+  }
+}
+
+@media (min-width: 768px) {
+  .main-site-navigation {
+    ul {
+      flex-direction: row;
+      align-items: center;
+      gap: 8rem;
+    }
+
+    li {
+      transition: 0.6s;
+
+      &:hover {
+        /* los hover irán sólo en ordenador */
+        font-variation-settings: "slnt" 0, "wght" 800;
+      }
+    }
+  }
+}
+
+/* HEADER INDEX */
+
+.main-header {
+  position: relative;
+  height: calc(100vh - 50px);
+  width: 100%;
+  padding-inline: 2em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  div {
+    position: relative;
+    margin-top: 120px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    z-index: 10;
+  }
+
+  .main-site-navigation {
+    position: relative;
+    margin-bottom: 40px;
+    z-index: 10;
+  }
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+/* HEADER con VIDEO */
+.vid-header {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+
+  .main-site-navigation {
+    align-self: flex-start;
+    z-index: 10;
+  }
+
+  .video-hero-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .video-hero-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+}

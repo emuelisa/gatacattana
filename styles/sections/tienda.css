@@ -1,0 +1,74 @@
+.bdy-tienda {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 9rem 0;
+}
+
+/* Grid con los productos de la tienda y su descripción */
+
+.productos {
+  padding-top: 20px;
+  grid-column-gap: 20px;
+  grid-row-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+
+  img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+  }
+
+  .item:nth-child(3) img {
+    object-position: right;
+  }
+
+  .item-info {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    padding-top: 0.3em;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .productos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .productos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0;
+
+    div {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(22, 20, 20, 0.5);
+      display: flex;
+      align-items: end;
+      padding: 1rem;
+      color: white;
+      opacity: 0;
+      transition: opacity 0.5s;
+
+      z-index: 10;
+    
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
